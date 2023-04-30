@@ -1,17 +1,22 @@
-import data from './data.json'
+import PropTypes from 'prop-types';
 
-export const Statistics = () => {
+export const Statistics = ({stats}) => {
 return (
     
-<section class="statistics">
-  <h2 class="title">Upload stats</h2>
-{data.map((d) => (
-  <ul class="stat-list">
-    <li class="item" key={d.id}>
-      <span class="label">{d.label}</span>
-      <span class="percentage">{d.percentage}</span>
+<section className="statistics">
+  <h2 className="title">Upload stats</h2>
+  <ul className="stat-list">
+{stats.map((stat) => (    
+    <li className="item" key={stat.id}>
+      <span className="label">{stat.label}</span>
+      <span className="percentage"> % {stat.percentage}</span>
     </li>
+))}    
   </ul>
-))}
 </section>
-)};
+  )
+};
+
+Statistics.prototype = {
+  stats: PropTypes.array.isRequired
+}
