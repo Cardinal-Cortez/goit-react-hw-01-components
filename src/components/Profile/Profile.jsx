@@ -6,7 +6,7 @@ export const Profile = (props) => {
       <div className="description">
         <img src={props.avatar} alt="User avatar" className="avatar" />
         <p className="name">{props.username}</p>
-        <p className="tag">{props.tag}</p>
+        <p className="tag">@ {props.tag}</p>
         <p className="location">{props.location}</p>
       </div>
 
