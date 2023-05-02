@@ -1,4 +1,4 @@
-.friend-list {
+.friendList {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -9,7 +9,7 @@
     margin-top: 20px;
 }
 
-.friend-list .item {
+.friendList .item {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
@@ -17,7 +17,7 @@
     border: 1px solid #ccc;
 }
 
-.friend-list .status {
+.friendList .status {
     display: block;
     width: 20px;
     height: 20px;
@@ -25,18 +25,18 @@
     border-radius: 50%;
 }
 
-.friend-list .status.online {
+.friendList .status.online {
     background-color: green;
 }
 
-.friend-list .status.offline {
+.friendList .status.offline {
     background-color: red;
 }
 
-.friend-list .avatar {
+.friendList .avatar {
     margin-right: 20px;
 }
 
-.friend-list .name {
+.friendList .name {
     font-weight: bold;
 }

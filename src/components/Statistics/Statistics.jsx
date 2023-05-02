@@ -1,19 +1,22 @@
 import PropTypes from 'prop-types';
-import './Statistics.css';
+import css from './Statistics.module.css';
 
-const colors = ['red', 'green', 'orange', 'blue', 'purple'];
 
-export const Statistics = ({stats}) => {
+export function Statistics({stats, titel}){
 return (
-<section className="statistics">
-  <h2 className="title">Upload stats</h2>
-  <ul className="stat-list">
-{stats.map((stat, index) => (    
-    <li className="item" key={stat.id}
-      style={{ backgroundColor: colors[index % colors.length] }}
+<section className={css.statistics}>
+  {titel && <h2 className={css.title}>{titel}</h2>}
+  <ul className={css.statList}>
+{stats.map(({id, label, percentage}) => (    
+    <li className={css.item} key={id}
+    style={{
+      backgroundColor: "#" + RandomColor(),
+      width: `calc(100%${stats.length})`
+      
+    }}
     >
-      <span className="label">{stat.label}</span>
-      <span className="percentage"> % {stat.percentage}</span>
+      <span className={css.label}>{label}</span>
+      <span className={css.percentage}>{percentage} %</span>
     </li>
 ))}    
   </ul>
@@ -21,6 +24,15 @@ return (
   )
 };
 
-Statistics.prototype = {
-  stats: PropTypes.array.isRequired
+Statistics.propTypes = {
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired
+    })
+  ),
+};
+function RandomColor() {
+  return Math.floor(Math.random() * 16777215).toString(16);
 }
