@@ -25,6 +25,7 @@ return (
 };
 
 Statistics.propTypes = {
+  titel: PropTypes.string.isRequired,
   stats: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
